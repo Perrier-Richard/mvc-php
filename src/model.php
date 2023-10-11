@@ -11,13 +11,13 @@
         }
 
         // On récupère les 5 derniers billets
-        $req = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT 0, 5');
+        $req = $bdd->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM billets ORDER BY creation_date DESC LIMIT 0, 5');
         $posts = [];
         while ($row = $req->fetch()){
             $post = [
-            'title' => $row['titre'],
-            'content' => $row['contenu'],
-            'frenchCreationDate' => $row['date_creation_fr'],
+            'title' => $row['title'],
+            'content' => $row['content'],
+            'frenchCreationDate' => $row['creation_date_fr'],
             ];
 
             $posts[] = $post;
@@ -26,4 +26,3 @@
 
         return $posts;
     }
-?>
