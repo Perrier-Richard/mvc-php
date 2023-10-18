@@ -1,8 +1,7 @@
 <?php
 
-   require('src/model.php');
+require('src/model.php');
 
-   $posts = getPosts();
-      
-   require('templates/homepage.php');
+$posts = getPosts();
 
+require('templates/homepage.php');
