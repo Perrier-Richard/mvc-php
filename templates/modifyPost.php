@@ -17,11 +17,7 @@
 
 <h2>Commentaires</h2>
 
-<form action="index.php?action=addComment&id=<?= $post->identifier ?>" method="post">
-   <div>
-      <label for="author">Auteur</label><br />
-      <input type="text" id="author" name="author" />
-   </div>
+<form action="index.php?action=changeComment&id=<?= $_GET['comment'] ?>" method="post">
    <div>
       <label for="comment">Commentaire</label><br />
       <textarea id="comment" name="comment"></textarea>
@@ -36,7 +32,6 @@ foreach ($comments as $comment) {
 ?>
     <p><strong><?= htmlspecialchars($comment->author) ?></strong> le <?= $comment->frenchCreationDate ?></p>
     <p><?= nl2br(htmlspecialchars($comment->comment)) ?></p>
-    <a href="index.php?action=updateComment&id=<?= urlencode($post->identifier) ?>&comment=<?= urlencode($comment->id) ?>">Modifier</a>
 <?php
 }
 ?>

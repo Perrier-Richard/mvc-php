@@ -1,6 +1,7 @@
 <?php
 
 require_once('src/controllers/add_comment.php');
+require_once('src/controllers/update_comment.php');
 require_once('src/controllers/homepage.php');
 require_once('src/controllers/post.php');
 
@@ -19,6 +20,22 @@ try {
                 $identifier = $_GET['id'];
 
                 addComment($identifier, $_POST);
+            } else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        } elseif ($_GET['action'] == 'updateComment'){
+            if (isset($_GET['id']) && $_GET['id'] > 0){
+                $identifier = $_GET['id'];
+
+                modifyPost($identifier);
+            } else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        } elseif ($_GET['action'] == 'changeComment'){
+            if (isset($_GET['id']) && $_GET['id'] > 0){
+                $identifier = $_GET['id'];
+
+                updateComment($identifier, $_POST);
             } else {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }

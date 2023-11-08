@@ -1,7 +1,5 @@
 <?php
 
-//namespace Application\Model\Post;
-
 require_once('src/lib/database.php');
 
 class Post
